@@ -75,9 +75,7 @@ def parse_map(source, pattern):
         lines = match.group(2)
 
         parts = str.split(lines, "\n")
-        maps = [
-            [int(number) for number in str.split(part)] for part in parts if len(part)
-        ]
+        maps = [[int(number) for number in str.split(part)] for part in parts if len(part)]
 
         objects[name] = maps
     return objects
@@ -91,7 +89,7 @@ def map_lookup(value, value_map):
 
         if not (source <= value < source + width):
             continue
-        
+
         diff = value - source
         return destination + diff
     return value
