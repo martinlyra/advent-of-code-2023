@@ -52,15 +52,13 @@ def move_rocks(map) -> list[list[str]]:
                 new_map[k][j] = tmp
     return new_map
 
+
 def calculate_load(map) -> int:
     return sum(
-        sum(
-            len(map) - i
-            for j in range(len(map[0])) 
-            if map[i][j] == "O"
-        ) 
+        sum(len(map) - i for j in range(len(map[0])) if map[i][j] == "O")
         for i in range(len(map))
     )
+
 
 if __name__ == "__main__":
     example_moved = move_rocks(parse_map(EXAMPLE))
