@@ -12,3 +12,6 @@ def read_file(file: str):
                 yield line
             else:
                 break
+
+def read_file_as_string(file_path: str):
+    return "".join(open(file_path, "rt", encoding="utf-8").readlines())
