@@ -1,5 +1,4 @@
 from functools import reduce
-import math
 from common import read_file_as_string, test
 
 
@@ -41,7 +40,7 @@ def count_dugout(raw_instructions):
     area = int(
         abs(
             sum(
-                (x1 - x2) * (y1 + y2) / 2
+                (x1 * y2 - x2 * y1) / 2
                 for (x1, y1), (x2, y2) in zip(vertices, vertices[1:])
             )
         )
