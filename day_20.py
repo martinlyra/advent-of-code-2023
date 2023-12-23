@@ -107,7 +107,6 @@ def find_cycle_length(nodes, max_length=1000):
             break
         length += 1
 
-    print(change)
     return (
         length,
         sum(hs for _, hs, _ in cache.values()),
