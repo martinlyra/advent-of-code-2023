@@ -1,5 +1,3 @@
-
-
 from functools import reduce
 from common import read_file_as_string, test
 from day_16 import to_grid
@@ -9,28 +7,27 @@ def neighbors(grid, x, y):
     w, h = len(grid[0]), len(grid)
 
     match grid[y][x]:
-        case '>':
-            return [(x+1, y)]
-        case '<':
-            return [(x-1, y)]
-        case 'v':
-            return [(x, y+1)]
-        case '^':
-            return [(x, y-1)]
+        case ">":
+            return [(x + 1, y)]
+        case "<":
+            return [(x - 1, y)]
+        case "v":
+            return [(x, y + 1)]
+        case "^":
+            return [(x, y - 1)]
         case _:
             pass
 
     def is_valid_tile(x, y, c):
-        return (
-            0 <= x < w and 0 <= y < h and grid[y][x] not in (c, '#')
-        )
+        return 0 <= x < w and 0 <= y < h and grid[y][x] not in (c, "#")
 
     return [
-        t for t in [
-            (x-1, y) if is_valid_tile(x-1, y, '>') else None,
-            (x+1, y) if is_valid_tile(x+1, y, '<') else None,
-            (x, y-1) if is_valid_tile(x, y-1, 'v') else None,
-            (x, y+1) if is_valid_tile(x, y+1, '^') else None,
+        t
+        for t in [
+            (x - 1, y) if is_valid_tile(x - 1, y, ">") else None,
+            (x + 1, y) if is_valid_tile(x + 1, y, "<") else None,
+            (x, y - 1) if is_valid_tile(x, y - 1, "v") else None,
+            (x, y + 1) if is_valid_tile(x, y + 1, "^") else None,
         ]
         if t
     ]
